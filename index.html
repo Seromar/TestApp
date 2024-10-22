@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Miniapp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>VPN Shop</h1>
+
+        <!-- Основные кнопки -->
+        <div id="main-menu" class="menu">
+            <button class="btn" onclick="showSubscriptionOptions()">Оформить подписку</button>
+            <button class="btn" onclick="showKey()">Получить ключ</button>
+            <button class="btn">Инструкция</button>
+            <button class="btn">Тех. поддержка</button>
+        </div>
+
+        <!-- Кнопки подписки -->
+        <div id="subscription-options" class="menu hidden">
+            <button class="btn" onclick="selectSubscription('Неделя')">Неделя</button>
+            <button class="btn" onclick="selectSubscription('Месяц')">Месяц</button>
+            <button class="btn" onclick="selectSubscription('Год')">Год</button>
+            <button class="btn back" onclick="showMainMenu()">Назад</button>
+        </div>
+
+        <!-- Экран с ключом -->
+        <div id="key-screen" class="menu hidden">
+            <div class="key-display">
+                <p id="vpn-key">1234-5678-91011</p>
+                <button class="btn" onclick="copyKey()">Скопировать ключ</button>
+            </div>
+            <button class="btn back" onclick="showMainMenu()">Назад</button>
+        </div>
+    </div>
+
+    <script>
+        // Функции для отображения меню
+        function showMainMenu() {
+            document.getElementById('main-menu').classList.remove('hidden');
+            document.getElementById('subscription-options').classList.add('hidden');
+            document.getElementById('key-screen').classList.add('hidden');
+        }
+
+        function showSubscriptionOptions() {
+            document.getElementById('main-menu').classList.add('hidden');
+            document.getElementById('subscription-options').classList.remove('hidden');
+        }
+
+        function showKey() {
+            document.getElementById('main-menu').classList.add('hidden');
+            document.getElementById('key-screen').classList.remove('hidden');
+        }
+
+        // Выбор подписки
+        function selectSubscription(plan) {
+            alert('Вы выбрали подписку: ' + plan);
+            showMainMenu(); // Вернуться в главное меню после выбора
+        }
+
+        // Копировать ключ
+        function copyKey() {
+            const key = document.getElementById('vpn-key').innerText;
+            navigator.clipboard.writeText(key).then(() => {
+                alert('Ключ скопирован: ' + key);
+            });
+        }
+    </script>
+</body>
+</html>
