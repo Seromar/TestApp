@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class="ms-auto" fill="none" viewBox="0 0 37 37" xmlns="http://www.w3.org/2000/svg">
+<mask id="a" x="0" y="0" width="37" height="37" style="mask-type:alpha" maskUnits="userSpaceOnUse">
+<rect width="37" height="37" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#a)">
+<path d="m18.25 24.408-9.25-9.25 2.1583-2.1583 7.0917 7.0916 7.0917-7.0916 2.1583 2.1583-9.25 9.25z" fill="#0061FF"/>
+</g>
+</svg>
