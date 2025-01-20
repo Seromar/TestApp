@@ -18,7 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://priem.guap.ru/guap.jpg">
-<script src="telegram-webapp.js"></script>
+
 
 <title>Факультет СПО – Прием ГУАП 2024 – Поступление 2024</title>
 
@@ -27,7 +27,7 @@
     <link href="libs/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="libs/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
-
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 	
 
 
@@ -504,9 +504,32 @@
     </div>
 </div>
 
+
+
+
 		
 
+<script>
+    // Проверяем, что WebApp API доступен
+    if (window.Telegram && Telegram.WebApp) {
+        // Показываем кнопку "Назад"
+        Telegram.WebApp.BackButton.show();
 
+        // Настраиваем обработчик события для кнопки "Назад"
+        Telegram.WebApp.BackButton.onClick(function() {
+            // Действие при нажатии на кнопку "Назад"
+            console.log('Кнопка "Назад" нажата!');
+            
+            // Пример: вернуться на предыдущую страницу
+            window.history.back();
+        });
+
+        // Скрыть кнопку "Назад", если она больше не нужна
+        // Telegram.WebApp.BackButton.hide();
+    } else {
+        console.error('Telegram WebApp API не доступен.');
+    }
+</script>
 		
 
 		
@@ -544,6 +567,7 @@
         const jsonFileName = 'spo.json';
         const jsonFilePath = basePath + jsonFileName;
 	</script>
+
 	<script type="text/javascript" src="assets/js/calc2.js"></script>
 
 </body>
