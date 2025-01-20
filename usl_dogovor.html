@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://priem.guap.ru/guap.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<script src="telegram-webapp.js"></script>
+
 
 
 
@@ -33,6 +33,7 @@
     <link href="../libs/swiper-11.0.3/dist/swiper.min.css" rel="stylesheet" type="text/css">
     <script src="../libs/swiper-11.0.3/src/swiper-bundle.js"></script>
     <script defer="" src="../assets/js/slider.js"></script>
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 	<!-- Yandex.Metrika counter -->
 	<script type="text/javascript">
@@ -165,7 +166,27 @@
 	</div>
 
 
+	<script>
+		// Проверяем, что WebApp API доступен
+		if (window.Telegram && Telegram.WebApp) {
+			// Показываем кнопку "Назад"
+			Telegram.WebApp.BackButton.show();
 	
+			// Настраиваем обработчик события для кнопки "Назад"
+			Telegram.WebApp.BackButton.onClick(function() {
+				// Действие при нажатии на кнопку "Назад"
+				console.log('Кнопка "Назад" нажата!');
+				
+				// Пример: вернуться на предыдущую страницу
+				window.history.back();
+			});
+	
+			// Скрыть кнопку "Назад", если она больше не нужна
+			// Telegram.WebApp.BackButton.hide();
+		} else {
+			console.error('Telegram WebApp API не доступен.');
+		}
+	</script>
 
 	
 
