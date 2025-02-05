@@ -206,6 +206,27 @@
 	</div>
 
 
+    <script>
+        // Проверяем, что WebApp API доступен
+        if (window.Telegram && Telegram.WebApp) {
+            // Показываем кнопку "Назад"
+            Telegram.WebApp.BackButton.show();
+    
+            // Настраиваем обработчик события для кнопки "Назад"
+            Telegram.WebApp.BackButton.onClick(function() {
+                // Действие при нажатии на кнопку "Назад"
+                console.log('Кнопка "Назад" нажата!');
+                
+                // Пример: вернуться на предыдущую страницу
+                window.history.back();
+            });
+    
+            // Скрыть кнопку "Назад", если она больше не нужна
+            // Telegram.WebApp.BackButton.hide();
+        } else {
+            console.error('Telegram WebApp API не доступен.');
+        }
+    </script>
 	
 
 	
